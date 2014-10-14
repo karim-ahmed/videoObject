@@ -34,7 +34,7 @@ if __name__ == "__main__":
     conf = Configuration()
     params = Params()
     # experiment name
-    params.exp_name = 'test_extract_stl'
+    params.exp_name = 'test_extract_stl_2'
     # default Configuration, image and label files
     params.conf = conf
     # select top C classes used to generate the predicted bboxes
@@ -83,6 +83,7 @@ if __name__ == "__main__":
     image_resz = skimage.transform.resize(img,\
                                 (net.get_input_dim(), net.get_input_dim()))
     image_resz = skimage.img_as_ubyte(image_resz)
+    img_height_resz, img_width_resz = np.shape(image_resz)[0:2]
 
     # Extract STL
     segment_lists = {}
@@ -104,7 +105,7 @@ if __name__ == "__main__":
         pred_bboxes = []
         for j in range(np.shape(pred_bboxes_unnorm)[0]):
             pred_bboxes_unnorm[j].normalize_to_outer_box(BBox(0, 0, \
-                                                img_width-1, img_height-1))
+                                                img_width_resz-1, img_height_resz-1))
             pred_bboxes.append(pred_bboxes_unnorm[j])
         # execute NMS, if requested
         if params.nms_execution:

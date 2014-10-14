@@ -217,7 +217,8 @@ class Configuration:
                 self.pascal2007_root_dir + '/Annotations'
             # ***** GRAYOBFUSCATION PROJECT *****
             self.experiments_output_directory = \
-                '/home/ironfs/scratch/vlg/Data_projects/grayobfuscation'
+		'/home/ironfs/scratch/karim'
+                #'/home/ironfs/scratch/vlg/Data_projects/grayobfuscation'
 	elif hostname == 'alessandro-Linux':
             # ***** ILSVRC 2012 *****
             ilsvrc2012_root = '/home/alessandro/Data/ILSVRC2012'
