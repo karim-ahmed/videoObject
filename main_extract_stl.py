@@ -3,7 +3,7 @@ import os
 import os.path
 import skimage.io as skio
 import skimage
-from vlg.util.parfun import *
+#from vlg.util.parfun import *
 
 from util import *
 from configuration import *

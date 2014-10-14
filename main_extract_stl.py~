@@ -118,7 +118,7 @@ if __name__ == "__main__":
     if params.dump_results:
         # rescale to img original size
         for bb in bboxes:
-            bb.rescale_to_outer_box(image_width, image_height)
+            bb.rescale_to_outer_box(img_width, img_height)
             bb.convert_coordinates_to_integers()
         outfilename = params.output_dir + '/' + image_name + '.txt'
         success = BBox.dump_bboxes_to_file(bboxes, outfilename)
