@@ -36,7 +36,7 @@ if __name__ == "__main__":
     params = Params()
     # experiment name.
     params.exp_name = 'segtrackv1'  # full path is /home/ironfs/scratch/karim/segtrackv1
-    params.sub_exp  = 'girl'        # sub experiment or 1 problem in dataset     
+    params.sub_exp  = 'cheetah'        # sub experiment or 1 problem in dataset     
     # default Configuration, image and label files
     params.conf = conf
     # select top C classes used to generate the predicted bboxes
@@ -79,8 +79,10 @@ if __name__ == "__main__":
     # Load img and resize to the net input   
     currentPath = 'test_data/' + params.exp_name + '/' + params.sub_exp + '/'
     segTestImgs = glob.glob(currentPath + '*.bmp')
-    for image_name in segTestImgs:
-        img = skio.imread(image_name)
+    for full_image_name in segTestImgs:
+        print "=================== Processing image: " + full_image_name + " ================================"
+        image_name = os.path.split(full_image_name)[-1]
+        img = skio.imread(full_image_name)
         img_height, img_width = np.shape(img)[0:2]
         gt_labels = [] # must be provided if use the supervised method
         image_resz = skimage.transform.resize(img,\
