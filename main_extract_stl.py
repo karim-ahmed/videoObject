@@ -54,7 +54,7 @@ if __name__ == "__main__":
     params.dump_results = True
     # input/output directory
     params.output_dir = conf.experiments_output_directory \
-                        + '/' + params.exp_name
+                        + '/' + params.exp_name + '/' + params.sub_exp
     if os.path.exists(params.output_dir) == False:
         os.makedirs(params.output_dir)
     # --- Run experiment --- #
@@ -79,8 +79,9 @@ if __name__ == "__main__":
     # Load img and resize to the net input   
     currentPath = 'test_data/' + params.exp_name + '/' + params.sub_exp + '/'
     segTestImgs = glob.glob(currentPath + '*.bmp')
-    for image_name in segTestImgs:
-        img = skio.imread(image_name)
+    for full_image_name in segTestImgs:
+        image_name = os.path.split(full_image_name)[-1]
+        img = skio.imread(full_image_name)
         img_height, img_width = np.shape(img)[0:2]
         gt_labels = [] # must be provided if use the supervised method
         image_resz = skimage.transform.resize(img,\
