@@ -32,11 +32,12 @@ class Params:
 if __name__ == "__main__":
     # --- Config and Parameters --- #
     # load configurations and parameters
+    # load_Girshick_caffe_model = True
     conf = Configuration()
     params = Params()
     # experiment name.
     params.exp_name = 'segtrackv1'  # full path is /home/ironfs/scratch/karim/segtrackv1
-    params.sub_exp  = 'cheetah'        # sub experiment or 1 problem in dataset     
+    params.sub_exp  = 'birdfall2'        # sub experiment or 1 problem in dataset     
     # default Configuration, image and label files
     params.conf = conf
     # select top C classes used to generate the predicted bboxes
@@ -66,6 +67,7 @@ if __name__ == "__main__":
                            center_only = params.center_only,\
                            wnid_subset = [])
     net = Network.create_network(netParams)
+    # feat = net.evaluate(img, layer_name = 'fc7')
     # Instanciate the obj segmentation algorithm
     img_segmenter = ImgSegmMatWraper()
     # Instantiate STL object
@@ -78,7 +80,7 @@ if __name__ == "__main__":
                             single_color_space = params.single_color_space)
     # Load img and resize to the net input   
     currentPath = 'test_data/' + params.exp_name + '/' + params.sub_exp + '/'
-    segTestImgs = glob.glob(currentPath + '*.bmp')
+    segTestImgs = glob.glob(currentPath + '*png')
     for full_image_name in segTestImgs:
         print "=================== Processing image: " + full_image_name + " ================================"
         image_name = os.path.split(full_image_name)[-1]

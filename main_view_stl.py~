@@ -4,14 +4,7 @@ import os.path
 import skimage.io as skio
 import skimage
 import glob
-#from vlg.util.parfun import *
 
-from util import *
-from configuration import *
-from bbox import *
-from imgsegmentation import *
-from network import *
-from self_taught_loc import *
 
 class Params:
     # Default parameters
