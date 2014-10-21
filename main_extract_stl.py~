@@ -80,7 +80,7 @@ if __name__ == "__main__":
                             single_color_space = params.single_color_space)
     # Load img and resize to the net input   
     currentPath = 'test_data/' + params.exp_name + '/' + params.sub_exp + '/'
-    segTestImgs = glob.glob(currentPath + '*.bmp')
+    segTestImgs = glob.glob(currentPath + '*png')
     for full_image_name in segTestImgs:
         print "=================== Processing image: " + full_image_name + " ================================"
         image_name = os.path.split(full_image_name)[-1]
