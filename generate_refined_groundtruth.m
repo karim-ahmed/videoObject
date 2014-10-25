@@ -1,6 +1,6 @@
 
 
-video_name = 'girl';
+video_name = 'monkeydog';
 extension = 'bmp';
 data_path = '/home/karim/MyCode/video_objectness/';
 test_path = fullfile(data_path, 'test_data/segtrackv1/',video_name); % source
