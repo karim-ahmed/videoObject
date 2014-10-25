@@ -37,7 +37,7 @@ if __name__ == "__main__":
     params = Params()
     # experiment name.
     params.exp_name = 'segtrackv1'  # full path is /home/ironfs/scratch/karim/segtrackv1
-    params.sub_exp  = 'birdfall2'        # sub experiment or 1 problem in dataset     
+    params.sub_exp  = 'parachute'        # sub experiment or 1 problem in dataset     
     # default Configuration, image and label files
     params.conf = conf
     # select top C classes used to generate the predicted bboxes
