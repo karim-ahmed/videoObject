@@ -1,0 +1,1 @@
+for i in *.png; do convert $i ${i/.bmp}.png;
